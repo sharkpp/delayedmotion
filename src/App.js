@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+"use struct";
+
+import React, { useState, useCallback } from 'react';
 import './App.css';
 
+import UploadImageView from './views/UploadImage';
+import SelectAreaView from './views/SelectArea';
+import DownloadImageView from './views/DownloadImage';
+
+import { Step } from './misc/constants';
+
 function App() {
+
+  const [ step,  setStep  ] = useState(Step.UploadImage);
+  const [ image, setImage ] = useState(null);
+  const [ image2, setImage2 ] = useState(null);
+
+  const handelUploadImageFinish = useCallback((selectedImage) => {
+    setImage(selectedImage);
+    setStep(Step.SelectArea);
+  });
+
+  const handelSelectAreaFinish = useCallback((generatedImage) => {
+    setImage2(generatedImage);
+    setStep(Step.DownloadImage);
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {[
+        <UploadImageView onNextStep={handelUploadImageFinish} />,
+        <SelectAreaView  onNextStep={handelSelectAreaFinish}  image={image} />,
+        <DownloadImageView  image={image2} />
+      ][step]}
     </div>
   );
 }
