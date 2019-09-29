@@ -2,12 +2,20 @@
 
 import React, { useState, useCallback } from 'react';
 import './App.css';
+import Card from 'react-bootstrap/Card'
+import Stepper from 'react-stepper-horizontal';
 
 import UploadImageView from './views/UploadImage';
 import SelectAreaView from './views/SelectArea';
 import DownloadImageView from './views/DownloadImage';
 
 import { Step } from './misc/constants';
+
+const Steps = [
+  { title: '画像をアップロード' },
+  { title: '揺らす範囲を設定' },
+  { title: '完成'}
+];
 
 function App() {
 
@@ -27,11 +35,18 @@ function App() {
 
   return (
     <div className="App">
-      {[
-        <UploadImageView onNextStep={handelUploadImageFinish} />,
-        <SelectAreaView  onNextStep={handelSelectAreaFinish}  image={image} />,
-        <DownloadImageView  image={image2} />
-      ][step]}
+            <Stepper steps={Steps} activeStep={step} />
+      <Card>
+        <Card.Body>
+          <Card.Text>
+            {[
+              <UploadImageView onNextStep={handelUploadImageFinish} />,
+              <SelectAreaView  onNextStep={handelSelectAreaFinish}  image={image} />,
+              <DownloadImageView  image={image2} />
+            ][step]}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </div>
   );
 }

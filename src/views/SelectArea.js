@@ -32,7 +32,7 @@ export default function ({ onNextStep, image }) {
 
     
   return (
-    <div className="App">
+    <div className="View">
       <canvas ref={canvasRef} style={{ width: '100%' }} />
     </div>
   );
