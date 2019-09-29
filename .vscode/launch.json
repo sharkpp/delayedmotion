@@ -12,7 +12,17 @@
       "runtimeArgs": [
         "start"
       ],
-      "port": 9229
+      "noDebug": true
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Chrome debug",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceRoot}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }
     },
     {
       "type": "node",
@@ -21,6 +31,15 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": [
         "build"
+      ]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "debug with Chrome",
+      "configurations": [
+        "NPM start",
+        "Chrome debug"
       ]
     }
   ]
