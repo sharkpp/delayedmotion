@@ -38,13 +38,11 @@ function App() {
             <Stepper steps={Steps} activeStep={step} />
       <Card>
         <Card.Body>
-          <Card.Text>
-            {[
-              <UploadImageView onNextStep={handelUploadImageFinish} />,
-              <SelectAreaView  onNextStep={handelSelectAreaFinish}  image={image} />,
-              <DownloadImageView  image={image2} />
-            ][step]}
-          </Card.Text>
+          {[
+            <UploadImageView onNextStep={handelUploadImageFinish} />,
+            <SelectAreaView  onNextStep={handelSelectAreaFinish}  image={image} />,
+            <DownloadImageView  image={image2} />
+          ][step]}
         </Card.Body>
       </Card>
     </div>

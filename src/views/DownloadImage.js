@@ -21,12 +21,12 @@ export default function ({ image }) {
   }, [image]);
 
   return (
-    <div className="View">
+    <>
       download image
       <img src={prevewImage} style={{ width: '100%' }} />
       <Button onClick={handleDownload} >
         Download
       </Button>
-    </div>
+    </>
   );
 }

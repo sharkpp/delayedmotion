@@ -37,7 +37,7 @@ export default function ({ onNextStep }) {
   ));
 
   return (
-    <div className="View">
+    <>
       <div {...getRootProps({className: 'dropzone'})}>
         <input {...getInputProps()} />
         <p>画像をここにドロップするか、クリックして選択してください</p>
@@ -46,6 +46,6 @@ export default function ({ onNextStep }) {
       <ol>
         {rejectedFilesItems}
       </ol>
-    </div>
+    </>
   );
 }
