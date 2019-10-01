@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/delayedmotion/static/css/main.dd51c456.chunk.css",
+    "main.js": "/delayedmotion/static/js/main.f1b68ab0.chunk.js",
+    "main.js.map": "/delayedmotion/static/js/main.f1b68ab0.chunk.js.map",
+    "runtime-main.js": "/delayedmotion/static/js/runtime-main.d50e8ab1.js",
+    "runtime-main.js.map": "/delayedmotion/static/js/runtime-main.d50e8ab1.js.map",
+    "static/css/2.fdae4297.chunk.css": "/delayedmotion/static/css/2.fdae4297.chunk.css",
+    "static/js/2.cdb79f74.chunk.js": "/delayedmotion/static/js/2.cdb79f74.chunk.js",
+    "static/js/2.cdb79f74.chunk.js.map": "/delayedmotion/static/js/2.cdb79f74.chunk.js.map",
+    "index.html": "/delayedmotion/index.html",
+    "precache-manifest.6add6160a1dc7d940255535f96568910.js": "/delayedmotion/precache-manifest.6add6160a1dc7d940255535f96568910.js",
+    "service-worker.js": "/delayedmotion/service-worker.js",
+    "static/css/2.fdae4297.chunk.css.map": "/delayedmotion/static/css/2.fdae4297.chunk.css.map",
+    "static/css/main.dd51c456.chunk.css.map": "/delayedmotion/static/css/main.dd51c456.chunk.css.map"
+  }
+}
