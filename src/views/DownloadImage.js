@@ -1,7 +1,8 @@
 "use struct";
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
+import './DownloadImage.css';
 const FileDownload = require('js-file-download');
 
 export default function ({ image }) {
@@ -22,11 +23,14 @@ export default function ({ image }) {
 
   return (
     <>
-      download image
-      <img src={prevewImage} style={{ width: '100%' }} />
-      <Button onClick={handleDownload} >
-        Download
-      </Button>
+      <Form.Group>
+        <Button onClick={handleDownload} >
+          ダウンロード
+        </Button>
+      </Form.Group>
+      <div className="image-preview">
+        <img src={prevewImage} style={{ width: '100%' }} />
+      </div>
     </>
   );
 }
