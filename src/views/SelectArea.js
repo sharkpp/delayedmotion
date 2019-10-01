@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback, createRef } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
+import './SelectArea.css';
 
 const BlockSize = 5;
 
