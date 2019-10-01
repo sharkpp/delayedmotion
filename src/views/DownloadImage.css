@@ -3,8 +3,14 @@
 }
 
 .image-preview > img {
-  /*position: absolute;*/
-  left: 0;
-  top: 0;
+  width: 100%;
+}
+
+.image-preview > img.layout {
+  visibility: hidden;
+}
+
+.image-preview > img.main {
+  position: absolute;
 }
 

@@ -29,7 +29,8 @@ export default function ({ image }) {
         </Button>
       </Form.Group>
       <div className="image-preview">
-        <img src={prevewImage} style={{ width: '100%' }} />
+        <img src={prevewImage} className="layout" />
+        <img src={prevewImage} className="main" style={{ left: 0, top: 0 }} />
       </div>
     </>
   );
