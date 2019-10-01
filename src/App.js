@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import './App.css';
-import Card from 'react-bootstrap/Card'
+import { Card, Row, Col, Button } from 'react-bootstrap'
 import Stepper from 'react-stepper-horizontal';
 
 import UploadImageView from './views/UploadImage';
@@ -16,6 +16,8 @@ const Steps = [
   { title: '揺らす範囲を設定' },
   { title: '完成'}
 ];
+
+const Title = '踊る ○□△ ジェネレータ';
 
 function App() {
 
@@ -39,6 +41,9 @@ function App() {
 
   return (
     <div className="App">
+      <h1>
+        {Title}
+      </h1>
       <div className="stepper">
         <Stepper steps={Steps} activeStep={step} />
       </div>
@@ -51,6 +56,18 @@ function App() {
           ][step]}
         </Card.Body>
       </Card>
+      <Row>
+        <Col>
+        </Col>
+        <Col>
+          <Button href="https://twitter.com/sharkpp" variant="link">
+            @sharkpp
+          </Button>
+          <Button href="https://github.com/sharkpp/delayedmotion/issues/new" variant="link">
+            不具合報告
+          </Button>
+        </Col>
+      </Row>
     </div>
   );
 }
