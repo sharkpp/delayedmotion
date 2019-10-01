@@ -14,3 +14,14 @@
 .btn-inner-spinner {
   margin-right: 8px;
 }
+
+.nav-tabs {
+  flex-wrap: nowrap;
+}
+
+.nav-tabs > a {
+  text-overflow: ellipsis;
+  display: inline-block;
+  word-break: keep-all;
+  overflow: hidden;
+}
