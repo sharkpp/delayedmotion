@@ -83,11 +83,13 @@ export default function ({ onNextStep, image }) {
       onNextStep(imageBlob);
     }, 'image/jpeg', 0.9);
   }, [image, crop]);
-    
+  
+  const cropValid = crop.width && crop.height;
+
   return (
     <>
       <Card.Text>
-      <Button onClick={handleAreaLock} >
+      <Button disabled={!cropValid} onClick={handleAreaLock} >
         選択完了
       </Button>
         <ReactCrop
