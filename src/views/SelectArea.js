@@ -5,6 +5,8 @@ import { Button, Card } from 'react-bootstrap';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
+const BlockSize = 5;
+
 export default function ({ onNextStep, image }) {
 
   const [ canvasRef, setCanvasRef ] = useState(createRef());
@@ -28,7 +30,13 @@ export default function ({ onNextStep, image }) {
   }, [image]);
 
   // 範囲変更
-  const handleChangeArea = useCallback((newCrop) => {
+  const handleChangeArea = useCallback(() => {
+    const newCrop = Object.assign({}, crop, {
+      // 領域を丸める
+      width:  Math.floor(crop.width  / BlockSize) * BlockSize + 1,
+      height: Math.floor(crop.height / BlockSize) * BlockSize + 1,
+    });
+
     const canvas = canvasRef.current;
     const ctx    = canvas.getContext('2d');
     const scale  = image.width / canvas.clientWidth;
@@ -37,12 +45,15 @@ export default function ({ onNextStep, image }) {
     const ctxOffscreen    = canvasOffscreen.getContext('2d');
     ctxOffscreen.drawImage(image, 0, 0, image.width, image.height);
 
+    const xiMax = Math.floor(newCrop.width  / BlockSize);
+    const yiMax = Math.floor(newCrop.height / BlockSize);
     const canvasMask = canvasMaskRef.current;
-    canvasMask.width = crop.width  / 5;
-    canvasMask.height= crop.height / 5;
+    canvasMask.width = xiMax;
+    canvasMask.height= yiMax;
     const ctxMask    = canvasMask.getContext('2d');
 
     if (canvasMask.width < 1 || canvasMask.height < 1) {
+      ctx.drawImage(canvasOffscreen, 0, 0);
       return;
     }
 
@@ -55,17 +66,19 @@ export default function ({ onNextStep, image }) {
     const maskData = ctxMask.getImageData(0, 0, canvasMask.width, canvasMask.height).data; // [ R(0,0), G(0,0), B(0,0), alpha(0,0), ... ]
 
     const xyStep  = 5 * scale;
-    const xOffset = crop.x * scale;
-    const xMax    = xOffset + crop.width * scale;
-    const yOffset = crop.y * scale;
-    const yMax    = yOffset + crop.height * scale;
+    const xOffset = newCrop.x * scale;
+    const xMax    = xOffset + newCrop.width * scale;
+    const yOffset = newCrop.y * scale;
+    const yMax    = yOffset + newCrop.height * scale;
 
     ctxOffscreen.fillStyle = 'rgb(0,0,0,0.5)';
-    ctxOffscreen.fillRect(crop.x * scale, crop.y * scale, Math.floor((crop.width + 1) / 5) * xyStep, Math.floor((crop.height + 1) / 5) * xyStep);
+    ctxOffscreen.fillRect(newCrop.x * scale, newCrop.y * scale,
+                          Math.floor((newCrop.width  + 1) / BlockSize) * xyStep,
+                          Math.floor((newCrop.height + 1) / BlockSize) * xyStep);
 
-    for (let y = yOffset, yi = 0; y < yMax; y += xyStep, ++yi) {
-      for (let x = xOffset, xi = 0; x < xMax; x += xyStep, ++xi) {
-        if (0 == maskData[(xi + yi * canvasMask.width) * 4 + 0] && Math.random() < 0.3) {
+    for (let y = yOffset, yi = 0; yi < yiMax; y += xyStep, ++yi) {
+      for (let x = xOffset, xi = 0; xi < xiMax; x += xyStep, ++xi) {
+        if (0 == maskData[(xi + yi * xiMax) * 4 + 0] && Math.random() < 0.3) {
           ctxOffscreen.fillStyle = '#FFFFFF';
           ctxOffscreen.fillRect(x, y, xyStep + scale, xyStep + scale);
         }
@@ -74,6 +87,7 @@ export default function ({ onNextStep, image }) {
 
     ctx.drawImage(canvasOffscreen, 0, 0);
 
+    setCrop(newCrop);
   }, [canvasRef, canvasOffscreenRef, canvasMaskRef, crop]);
 
   // 範囲確定
