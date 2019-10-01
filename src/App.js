@@ -33,6 +33,10 @@ function App() {
     setStep(Step.DownloadImage);
   });
 
+  const handelDownloadImageFinish = useCallback(() => {
+    setStep(Step.UploadImage);
+  });
+
   return (
     <div className="App">
       <div className="stepper">
@@ -41,9 +45,9 @@ function App() {
       <Card>
         <Card.Body>
           {[
-            <UploadImageView onNextStep={handelUploadImageFinish} />,
-            <SelectAreaView  onNextStep={handelSelectAreaFinish}  image={image} />,
-            <DownloadImageView  image={image2} />
+            <UploadImageView   onNextStep={handelUploadImageFinish} />,
+            <SelectAreaView    onNextStep={handelSelectAreaFinish}    image={image} />,
+            <DownloadImageView onNextStep={handelDownloadImageFinish} image={image2} />
           ][step]}
         </Card.Body>
       </Card>
