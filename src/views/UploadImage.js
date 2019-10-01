@@ -70,6 +70,7 @@ export default function ({ onNextStep }) {
   return (
     <>
       <Tabs activeKey={imageSrcType} onSelect={k => setImageSrcType(k)}>
+
         <Tab eventKey={ImageSourceType.FromLocal} title="画像のアップロード">
           <div {...getRootProps({className: 'dropzone'})}>
             <input {...getInputProps()} />
@@ -80,6 +81,7 @@ export default function ({ onNextStep }) {
             {rejectedFilesItems}
           </ol>
         </Tab>
+
         <Tab eventKey={ImageSourceType.FromUrl} title="画像のURLを指定">
           <InputGroup className="mb-3">
             <FormControl
@@ -111,6 +113,7 @@ export default function ({ onNextStep }) {
             </Form.Control.Feedback>
           </InputGroup>
         </Tab>
+
       </Tabs>
     </>
   );

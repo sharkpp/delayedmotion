@@ -35,7 +35,9 @@ function App() {
 
   return (
     <div className="App">
-            <Stepper steps={Steps} activeStep={step} />
+      <div className="stepper">
+        <Stepper steps={Steps} activeStep={step} />
+      </div>
       <Card>
         <Card.Body>
           {[

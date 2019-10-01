@@ -1,5 +1,14 @@
 .tab-content {
   padding-top: 0.5em;
+  height: calc(100% - 42px);
+}
+
+.tab-pane {
+  height: 100%;
+}
+
+.tab-pane > .dropzone {
+  height: 100%;
 }
 
 .btn-inner-spinner {
