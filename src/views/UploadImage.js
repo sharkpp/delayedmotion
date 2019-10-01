@@ -38,7 +38,8 @@ export default function ({ onNextStep }) {
     getInputProps
   } = useDropzone({
     accept: 'image/jpeg, image/png',
-    onDrop: handleDrop
+    onDrop: handleDrop,
+    disabled: loadingImageUrl,
   });
 
   const rejectedFilesItems = rejectedFiles.map(file => (
@@ -72,7 +73,7 @@ export default function ({ onNextStep }) {
       <Tabs activeKey={imageSrcType} onSelect={k => setImageSrcType(k)}>
 
         <Tab eventKey={ImageSourceType.FromLocal} title="画像のアップロード">
-          <div {...getRootProps({className: 'dropzone'})}>
+          <div {...getRootProps({className: 'dropzone'+(loadingImageUrl?' disabled':'')})}>
             <input {...getInputProps()} />
             <p>画像をここにドロップするか、クリックして選択してください</p>
             <em>jpeg もしくは png のみ指定可能)</em>
