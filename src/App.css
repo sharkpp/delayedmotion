@@ -10,21 +10,34 @@
   flex-grow: 1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.App > h1 {
+  font-size: calc(100vw / 13);
 }
 
-.App-link {
-  color: #09d3ac;
+@media screen and (min-width: 768px) {
+  .App > h1 {
+    font-size: 2.5rem;
+  }
 }
 
 .stepper {
   margin-bottom: 1em; 
+}
+
+.stepper > div > div > div > a,
+.stepper > div > div > div > div {
+  font-size: calc(33vw / 10) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .stepper > div > div > div > a,
+  .stepper > div > div > div > div {
+    font-size: 1rem !important;
+  }
+}
+
+.footer {
+  text-align: right;
+  margin-bottom: -1rem;
+  padding: 0.5rem 0;
 }

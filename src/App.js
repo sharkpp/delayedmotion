@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import './App.css';
-import { Card, Row, Col, Button } from 'react-bootstrap'
+import { Card, Row, Col, Button, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Stepper from 'react-stepper-horizontal';
 
 import UploadImageView from './views/UploadImage';
@@ -56,18 +56,14 @@ function App() {
           ][step]}
         </Card.Body>
       </Card>
-      <Row>
-        <Col>
-        </Col>
-        <Col>
-          <Button href="https://twitter.com/sharkpp" variant="link">
+      <div className="footer">
+          <Button variant="link" size="sm" href="https://twitter.com/sharkpp">
             @sharkpp
           </Button>
-          <Button href="https://github.com/sharkpp/delayedmotion/issues/new" variant="link">
+          <Button variant="link" size="sm" href="https://github.com/sharkpp/delayedmotion/issues/new">
             不具合報告
           </Button>
-        </Col>
-      </Row>
+      </div>
     </div>
   );
 }
