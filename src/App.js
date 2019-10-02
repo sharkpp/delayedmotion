@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import './App.css';
-import { Card, Row, Col, Button, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import Stepper from 'react-stepper-horizontal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBug } from '@fortawesome/free-solid-svg-icons'
