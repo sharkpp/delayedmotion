@@ -62,3 +62,8 @@ Reactを学ぶには [React documentation](https://reactjs.org/) をご覧くだ
 ### `npm run build` が縮小に失敗する
 
 このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### ライセンスなど
+
+* Logo from openclipart [AlanSpeak-Crème caramel or Flan](https://openclipart.org/detail/204739/alanspeakcreme-caramel-or-flan)  
+
