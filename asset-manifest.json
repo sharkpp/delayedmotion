@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "https://sharkpp.github.io/delayedmotion/static/css/main.cfebc3c1.chunk.css",
-    "main.js": "https://sharkpp.github.io/delayedmotion/static/js/main.acb64a4a.chunk.js",
-    "main.js.map": "https://sharkpp.github.io/delayedmotion/static/js/main.acb64a4a.chunk.js.map",
+    "main.css": "https://sharkpp.github.io/delayedmotion/static/css/main.d192fcce.chunk.css",
+    "main.js": "https://sharkpp.github.io/delayedmotion/static/js/main.25db35a0.chunk.js",
+    "main.js.map": "https://sharkpp.github.io/delayedmotion/static/js/main.25db35a0.chunk.js.map",
     "runtime-main.js": "https://sharkpp.github.io/delayedmotion/static/js/runtime-main.971109f5.js",
     "runtime-main.js.map": "https://sharkpp.github.io/delayedmotion/static/js/runtime-main.971109f5.js.map",
-    "static/css/2.aa96876e.chunk.css": "https://sharkpp.github.io/delayedmotion/static/css/2.aa96876e.chunk.css",
-    "static/js/2.51b640aa.chunk.js": "https://sharkpp.github.io/delayedmotion/static/js/2.51b640aa.chunk.js",
-    "static/js/2.51b640aa.chunk.js.map": "https://sharkpp.github.io/delayedmotion/static/js/2.51b640aa.chunk.js.map",
+    "static/css/2.fdae4297.chunk.css": "https://sharkpp.github.io/delayedmotion/static/css/2.fdae4297.chunk.css",
+    "static/js/2.2ed8cb23.chunk.js": "https://sharkpp.github.io/delayedmotion/static/js/2.2ed8cb23.chunk.js",
+    "static/js/2.2ed8cb23.chunk.js.map": "https://sharkpp.github.io/delayedmotion/static/js/2.2ed8cb23.chunk.js.map",
     "index.html": "https://sharkpp.github.io/delayedmotion/index.html",
-    "precache-manifest.473f975ecc3d0e25b9ceb7826908d525.js": "https://sharkpp.github.io/delayedmotion/precache-manifest.473f975ecc3d0e25b9ceb7826908d525.js",
+    "precache-manifest.dbd10b112fbf1abbe545659c3cb16174.js": "https://sharkpp.github.io/delayedmotion/precache-manifest.dbd10b112fbf1abbe545659c3cb16174.js",
     "service-worker.js": "https://sharkpp.github.io/delayedmotion/service-worker.js",
-    "static/css/2.aa96876e.chunk.css.map": "https://sharkpp.github.io/delayedmotion/static/css/2.aa96876e.chunk.css.map",
-    "static/css/main.cfebc3c1.chunk.css.map": "https://sharkpp.github.io/delayedmotion/static/css/main.cfebc3c1.chunk.css.map"
+    "static/css/2.fdae4297.chunk.css.map": "https://sharkpp.github.io/delayedmotion/static/css/2.fdae4297.chunk.css.map",
+    "static/css/main.d192fcce.chunk.css.map": "https://sharkpp.github.io/delayedmotion/static/css/main.d192fcce.chunk.css.map"
   }
 }
