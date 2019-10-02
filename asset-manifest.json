@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/delayedmotion/static/css/main.cfebc3c1.chunk.css",
-    "main.js": "/delayedmotion/static/js/main.b4f47f42.chunk.js",
-    "main.js.map": "/delayedmotion/static/js/main.b4f47f42.chunk.js.map",
-    "runtime-main.js": "/delayedmotion/static/js/runtime-main.d50e8ab1.js",
-    "runtime-main.js.map": "/delayedmotion/static/js/runtime-main.d50e8ab1.js.map",
-    "static/css/2.aa96876e.chunk.css": "/delayedmotion/static/css/2.aa96876e.chunk.css",
-    "static/js/2.51b640aa.chunk.js": "/delayedmotion/static/js/2.51b640aa.chunk.js",
-    "static/js/2.51b640aa.chunk.js.map": "/delayedmotion/static/js/2.51b640aa.chunk.js.map",
-    "index.html": "/delayedmotion/index.html",
-    "precache-manifest.ead470d3edea1271a07f0df92bf74690.js": "/delayedmotion/precache-manifest.ead470d3edea1271a07f0df92bf74690.js",
-    "service-worker.js": "/delayedmotion/service-worker.js",
-    "static/css/2.aa96876e.chunk.css.map": "/delayedmotion/static/css/2.aa96876e.chunk.css.map",
-    "static/css/main.cfebc3c1.chunk.css.map": "/delayedmotion/static/css/main.cfebc3c1.chunk.css.map"
+    "main.css": "https://sharkpp.github.io/delayedmotion/static/css/main.cfebc3c1.chunk.css",
+    "main.js": "https://sharkpp.github.io/delayedmotion/static/js/main.acb64a4a.chunk.js",
+    "main.js.map": "https://sharkpp.github.io/delayedmotion/static/js/main.acb64a4a.chunk.js.map",
+    "runtime-main.js": "https://sharkpp.github.io/delayedmotion/static/js/runtime-main.971109f5.js",
+    "runtime-main.js.map": "https://sharkpp.github.io/delayedmotion/static/js/runtime-main.971109f5.js.map",
+    "static/css/2.aa96876e.chunk.css": "https://sharkpp.github.io/delayedmotion/static/css/2.aa96876e.chunk.css",
+    "static/js/2.51b640aa.chunk.js": "https://sharkpp.github.io/delayedmotion/static/js/2.51b640aa.chunk.js",
+    "static/js/2.51b640aa.chunk.js.map": "https://sharkpp.github.io/delayedmotion/static/js/2.51b640aa.chunk.js.map",
+    "index.html": "https://sharkpp.github.io/delayedmotion/index.html",
+    "precache-manifest.31593ae4ea2107f116b1836555a0785a.js": "https://sharkpp.github.io/delayedmotion/precache-manifest.31593ae4ea2107f116b1836555a0785a.js",
+    "service-worker.js": "https://sharkpp.github.io/delayedmotion/service-worker.js",
+    "static/css/2.aa96876e.chunk.css.map": "https://sharkpp.github.io/delayedmotion/static/css/2.aa96876e.chunk.css.map",
+    "static/css/main.cfebc3c1.chunk.css.map": "https://sharkpp.github.io/delayedmotion/static/css/main.cfebc3c1.chunk.css.map"
   }
 }
