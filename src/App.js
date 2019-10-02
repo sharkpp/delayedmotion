@@ -4,6 +4,9 @@ import React, { useState, useCallback } from 'react';
 import './App.css';
 import { Card, Row, Col, Button, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Stepper from 'react-stepper-horizontal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBug } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import UploadImageView from './views/UploadImage';
 import SelectAreaView from './views/SelectArea';
@@ -58,10 +61,10 @@ function App() {
       </Card>
       <div className="footer">
           <Button variant="link" size="sm" target="_blank" href="https://twitter.com/sharkpp">
-            @sharkpp
+            <FontAwesomeIcon icon={faTwitter} /> @sharkpp
           </Button>
           <Button variant="link" size="sm" target="_blank" href="https://github.com/sharkpp/delayedmotion/issues/new">
-            不具合報告
+            <FontAwesomeIcon icon={faBug} /> 不具合報告
           </Button>
       </div>
     </div>
