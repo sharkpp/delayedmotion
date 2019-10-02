@@ -9,12 +9,15 @@ import { Card, Button } from 'react-bootstrap'
 import Stepper from 'react-stepper-horizontal';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBug } from '@fortawesome/free-solid-svg-icons'
+import { faBug, faUserShield } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import UploadImageView from './views/UploadImage';
 import SelectAreaView from './views/SelectArea';
 import DownloadImageView from './views/DownloadImage';
+
+import SimplePopup from './components/SimplePopup';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 import { Step } from './misc/constants';
 
@@ -29,6 +32,7 @@ function App() {
   const [ step,  setStep  ] = useState(Step.UploadImage);
   const [ image, setImage ] = useState(null);
   const [ image2, setImage2 ] = useState(null);
+  const [ showPrivacyPolicy, setShowPrivacyPolicy ] = useState(false);
 
   const handelUploadImageFinish = useCallback((selectedImage) => {
     setImage(selectedImage);
@@ -63,6 +67,9 @@ function App() {
         ][step]}
       </Card>
       <div className="footer">
+          <Button variant="link" size="sm" onClick={() => setShowPrivacyPolicy(true)}>
+            <FontAwesomeIcon icon={faUserShield} /> プライバシーポリシー
+          </Button>
           <Button variant="link" size="sm" target="_blank" href="https://twitter.com/sharkpp">
             <FontAwesomeIcon icon={faTwitter} /> @sharkpp
           </Button>
@@ -70,6 +77,13 @@ function App() {
             <FontAwesomeIcon icon={faBug} /> 不具合報告
           </Button>
       </div>
+      <SimplePopup
+        open={showPrivacyPolicy}
+        onClose={() => setShowPrivacyPolicy(false)}
+        title="プライバシーポリシー"
+      >
+        <PrivacyPolicy />
+      </SimplePopup>
     </div>
   );
 }

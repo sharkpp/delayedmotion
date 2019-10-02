@@ -1,0 +1,15 @@
+.privacy-policy {
+  text-align: left;
+}
+
+.privacy-policy > h2 {
+  border-bottom: double 3px #ccc;
+  margin-top: 1rem;
+  margin-right: .5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.privacy-policy > p {
+  margin-bottom: .3rem;
+}
