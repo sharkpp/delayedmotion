@@ -1,7 +1,7 @@
 "use struct";
 
 import React, { useState, useEffect, useCallback, createRef } from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
+import { Button, Card, Form, Alert } from 'react-bootstrap';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 import './SelectArea.css';
@@ -105,9 +105,12 @@ export default function ({ onNextStep, image }) {
     <Card.Body>
       <Card.Text>
         <Form.Group>
-          <Button disabled={!cropValid} onClick={handleAreaLock} >
+          {!!cropValid&&<Button onClick={handleAreaLock} >
             選択完了
-          </Button>
+          </Button>}
+          {!cropValid&&<Alert variant='info'>
+            揺らす範囲を選択してください
+          </Alert>}
         </Form.Group>
         <ReactCrop
           renderComponent={
