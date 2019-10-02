@@ -2,7 +2,10 @@
 
 import React, { useState, useCallback } from 'react';
 
-import { Tabs, Tab, Form, FormControl, InputGroup, Button, Spinner } from 'react-bootstrap';
+import { Nav, Card, Form, FormControl, InputGroup, Button, Spinner } from 'react-bootstrap';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileUpload } from '@fortawesome/free-solid-svg-icons'
 
 import {useDropzone} from 'react-dropzone'
 import 'react-dropzone/examples/theme.css';
@@ -70,52 +73,60 @@ export default function ({ onNextStep }) {
 
   return (
     <>
-      <Tabs activeKey={imageSrcType} onSelect={k => setImageSrcType(k)}>
+      <Card.Header>
+        <Nav variant="tabs" activeKey={imageSrcType} onSelect={k => setImageSrcType(k)}>
+          <Nav.Item>
+            <Nav.Link eventKey={ImageSourceType.FromLocal}>アップロード</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
+          </Nav.Item>
+        </Nav>
+      </Card.Header>
 
-        <Tab eventKey={ImageSourceType.FromLocal} title="画像のアップロード">
-          <div {...getRootProps({className: 'dropzone'+(loadingImageUrl?' disabled':'')})}>
-            <input {...getInputProps()} />
-            <p>画像をここにドロップするか、クリックして選択してください</p>
-            <em>jpeg もしくは png のみ指定可能)</em>
-          </div>
-          <ol>
-            {rejectedFilesItems}
-          </ol>
-        </Tab>
+      {ImageSourceType.FromLocal == imageSrcType && <Card.Body>
+        <div {...getRootProps({className: 'dropzone'+(loadingImageUrl?' disabled':'')})}>
+          <input {...getInputProps()} />
+          <FontAwesomeIcon icon={faFileUpload} size="4x" />
+          <p>画像をここにドロップするか、クリックして選択してください</p>
+          <em>jpeg もしくは png のみ指定可能)</em>
+        </div>
+        <ol>
+          {rejectedFilesItems}
+        </ol>
+      </Card.Body>}
 
-        <Tab eventKey={ImageSourceType.FromUrl} title="画像のURLを指定">
-          <InputGroup className="mb-3">
-            <FormControl
-              placeholder="画像のURL"
-              value={imageUrl}
-              onChange={handleSelectImageUrl}
-              isInvalid={invalidImageUrl}
-              readOnly={loadingImageUrl}
-            />
-            <InputGroup.Append>
-              <Button 
-                variant="outline-primary"
-                onClick={handleSelectedImageUrl}
-                disabled={!imageUrl || loadingImageUrl}
-              >
-                {loadingImageUrl && <Spinner
-                  as="span"
-                  animation="border"
-                  size="sm"
-                  role="status"
-                  aria-hidden="true"
-                  className="btn-inner-spinner"
-                />}
-                画像を選択
-              </Button>
-            </InputGroup.Append>
-            <Form.Control.Feedback type="invalid">
-              指定したURLは画像として利用できませんでした
-            </Form.Control.Feedback>
-          </InputGroup>
-        </Tab>
-
-      </Tabs>
+      {ImageSourceType.FromUrl == imageSrcType && <Card.Body>
+        <InputGroup className="mb-3">
+          <FormControl
+            placeholder="画像のURL"
+            value={imageUrl}
+            onChange={handleSelectImageUrl}
+            isInvalid={invalidImageUrl}
+            readOnly={loadingImageUrl}
+          />
+          <InputGroup.Append>
+            <Button 
+              variant="outline-primary"
+              onClick={handleSelectedImageUrl}
+              disabled={!imageUrl || loadingImageUrl}
+            >
+              {loadingImageUrl && <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+                className="btn-inner-spinner"
+              />}
+              画像を選択
+            </Button>
+          </InputGroup.Append>
+          <Form.Control.Feedback type="invalid">
+            指定したURLは画像として利用できませんでした
+          </Form.Control.Feedback>
+        </InputGroup>
+      </Card.Body>}
     </>
   );
 }

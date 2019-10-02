@@ -1,9 +1,13 @@
 "use struct";
 
 import React, { useState, useCallback } from 'react';
+
 import './App.css';
+
 import { Card, Button } from 'react-bootstrap'
+
 import Stepper from 'react-stepper-horizontal';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBug } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -51,13 +55,11 @@ function App() {
         <Stepper steps={Steps} activeStep={step} />
       </div>
       <Card>
-        <Card.Body>
-          {[
-            <UploadImageView   onNextStep={handelUploadImageFinish} />,
-            <SelectAreaView    onNextStep={handelSelectAreaFinish}    image={image} />,
-            <DownloadImageView onNextStep={handelDownloadImageFinish} image={image2} />
-          ][step]}
-        </Card.Body>
+        {[
+          <UploadImageView   onNextStep={handelUploadImageFinish} />,
+          <SelectAreaView    onNextStep={handelSelectAreaFinish}    image={image} />,
+          <DownloadImageView onNextStep={handelDownloadImageFinish} image={image2} />
+        ][step]}
       </Card>
       <div className="footer">
           <Button variant="link" size="sm" target="_blank" href="https://twitter.com/sharkpp">

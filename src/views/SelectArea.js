@@ -102,7 +102,7 @@ export default function ({ onNextStep, image }) {
   const cropValid = crop.width && crop.height;
 
   return (
-    <>
+    <Card.Body>
       <Card.Text>
         <Form.Group>
           <Button disabled={!cropValid} onClick={handleAreaLock} >
@@ -120,6 +120,6 @@ export default function ({ onNextStep, image }) {
       </Card.Text>
       <canvas ref={canvasOffscreenRef} style={{ width: '100%', display: 'none' }} />
       <canvas ref={canvasMaskRef} style={{ display: 'none' }} />
-    </>
+    </Card.Body>
   );
 }

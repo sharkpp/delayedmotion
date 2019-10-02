@@ -7,8 +7,15 @@
   height: 100%;
 }
 
-.tab-pane > .dropzone {
+.dropzone {
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropzone > p {
+  margin-top: .5rem;
 }
 
 .btn-inner-spinner {
@@ -19,9 +26,8 @@
   flex-wrap: nowrap;
 }
 
-.nav-tabs > a {
+.nav-item > a {
   text-overflow: ellipsis;
-  display: inline-block;
   word-break: keep-all;
   overflow: hidden;
 }
