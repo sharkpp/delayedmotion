@@ -17,7 +17,7 @@ const Steps = [
   { title: '完成'}
 ];
 
-const Title = '踊る画像ジェネレータ';
+const Title = '揺れる画像ジェネレータ';
 
 function App() {
 
