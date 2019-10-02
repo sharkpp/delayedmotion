@@ -57,10 +57,10 @@ function App() {
         </Card.Body>
       </Card>
       <div className="footer">
-          <Button variant="link" size="sm" href="https://twitter.com/sharkpp">
+          <Button variant="link" size="sm" target="_blank" href="https://twitter.com/sharkpp">
             @sharkpp
           </Button>
-          <Button variant="link" size="sm" href="https://github.com/sharkpp/delayedmotion/issues/new">
+          <Button variant="link" size="sm" target="_blank" href="https://github.com/sharkpp/delayedmotion/issues/new">
             不具合報告
           </Button>
       </div>
