@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bb5d3c12955531a5632d1d55709a62af",
+    "revision": "c02611bae9bd9d4483de7673d40560a0",
     "url": "https://sharkpp.github.io/delayedmotion/index.html"
   },
   {
