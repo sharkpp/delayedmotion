@@ -11,7 +11,10 @@
 }
 
 .App > h1 {
-  font-size: calc(100vw / 13);
+  font-size: calc((100vw - 3em) / 13);
+}
+.App > h1 rt {
+  font-size: 30%;
 }
 
 @media screen and (min-width: 768px) {

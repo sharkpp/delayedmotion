@@ -24,8 +24,6 @@ const Steps = [
   { title: '完成'}
 ];
 
-const Title = '揺れる画像ジェネレータ';
-
 function App() {
 
   const [ step,  setStep  ] = useState(Step.UploadImage);
@@ -49,7 +47,10 @@ function App() {
   return (
     <div className="App">
       <h1>
-        {Title}
+        揺れる<ruby>
+          ※<rp>(</rp><rt>ちょめ</rt><rp>)</rp>
+          ※<rp>(</rp><rt>ちょめ</rt><rp>)</rp>
+        </ruby>画像ジェネレータ
       </h1>
       <div className="stepper">
         <Stepper steps={Steps} activeStep={step} />
