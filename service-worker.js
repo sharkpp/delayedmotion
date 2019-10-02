@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://sharkpp.github.io/delayedmotion/precache-manifest.dbd10b112fbf1abbe545659c3cb16174.js"
+  "https://sharkpp.github.io/delayedmotion/precache-manifest.d6454b22e897de6a44dea219b05a1faf.js"
 );
 
 self.addEventListener('message', (event) => {
