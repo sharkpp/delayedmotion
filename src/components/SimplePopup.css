@@ -35,3 +35,8 @@
   overflow-y: scroll;
 }
 
+.simple-popup > div > .card > .card-body > .card-text {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+

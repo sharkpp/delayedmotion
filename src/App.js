@@ -1,6 +1,6 @@
 "use struct";
 
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
 
@@ -34,19 +34,19 @@ function App() {
   const [ image2, setImage2 ] = useState(null);
   const [ showPrivacyPolicy, setShowPrivacyPolicy ] = useState(false);
 
-  const handelUploadImageFinish = useCallback((selectedImage) => {
+  const handelUploadImageFinish = (selectedImage) => {
     setImage(selectedImage);
     setStep(Step.SelectArea);
-  });
+  };
 
-  const handelSelectAreaFinish = useCallback((generatedImage) => {
+  const handelSelectAreaFinish = (generatedImage) => {
     setImage2(generatedImage);
     setStep(Step.DownloadImage);
-  });
+  };
 
-  const handelDownloadImageFinish = useCallback(() => {
+  const handelDownloadImageFinish = () => {
     setStep(Step.UploadImage);
-  });
+  };
 
   return (
     <div className="App">

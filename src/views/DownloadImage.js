@@ -40,8 +40,8 @@ export default function ({ image, onNextStep }) {
         </Form.Group>
       </Form.Row>
       <div className="image-preview">
-        <img src={prevewImage} className="layout" />
-        <img src={prevewImage} className="main" style={{ left: 0, top: 0 }} />
+        <img src={prevewImage} className="layout" alt="layout" />
+        <img src={prevewImage} className="main"   alt="生成画像" style={{ left: 0, top: 0 }} />
       </div>
     </Card.Body>
   );

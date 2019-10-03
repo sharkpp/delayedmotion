@@ -10,9 +10,9 @@ const BlockSize = 5;
 
 export default function ({ onNextStep, image }) {
 
-  const [ canvasRef, setCanvasRef ] = useState(createRef());
-  const [ canvasMaskRef, setCanvasMaskRef ] = useState(createRef());
-  const [ canvasOffscreenRef, setCanvasOffscreenRef ] = useState(createRef());
+  const [ canvasRef ] = useState(createRef());
+  const [ canvasMaskRef ] = useState(createRef());
+  const [ canvasOffscreenRef ] = useState(createRef());
   const [crop, setCrop] = useState({ });
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function ({ onNextStep, image }) {
     canvasOffscreen.width = image.width;
     canvasOffscreen.height= image.height;
 
-  }, [image]);
+  }, [image, canvasRef, canvasOffscreenRef]);
 
   // 範囲変更
   const handleChangeArea = useCallback(() => {
@@ -68,9 +68,7 @@ export default function ({ onNextStep, image }) {
 
     const xyStep  = 5 * scale;
     const xOffset = newCrop.x * scale;
-    const xMax    = xOffset + newCrop.width * scale;
     const yOffset = newCrop.y * scale;
-    const yMax    = yOffset + newCrop.height * scale;
 
     ctxOffscreen.fillStyle = 'rgb(0,0,0,0.5)';
     ctxOffscreen.fillRect(newCrop.x * scale, newCrop.y * scale,
@@ -79,7 +77,7 @@ export default function ({ onNextStep, image }) {
 
     for (let y = yOffset, yi = 0; yi < yiMax; y += xyStep, ++yi) {
       for (let x = xOffset, xi = 0; xi < xiMax; x += xyStep, ++xi) {
-        if (0 == maskData[(xi + yi * xiMax) * 4 + 0] && Math.random() < 0.3) {
+        if (0 === maskData[(xi + yi * xiMax) * 4 + 0] && Math.random() < 0.3) {
           ctxOffscreen.fillStyle = '#FFFFFF';
           ctxOffscreen.fillRect(x, y, xyStep + scale, xyStep + scale);
         }
@@ -89,7 +87,7 @@ export default function ({ onNextStep, image }) {
     ctx.drawImage(canvasOffscreen, 0, 0);
 
     setCrop(newCrop);
-  }, [canvasRef, canvasOffscreenRef, canvasMaskRef, crop]);
+  }, [image, canvasRef, canvasOffscreenRef, canvasMaskRef, crop]);
 
   // 範囲確定
   const handleAreaLock = useCallback(() => {
@@ -97,7 +95,7 @@ export default function ({ onNextStep, image }) {
     canvas.toBlob((imageBlob) => {
       onNextStep(imageBlob);
     }, 'image/jpeg', 0.9);
-  }, [image, crop]);
+  }, [canvasRef, onNextStep]);
   
   const cropValid = crop.width && crop.height;
 

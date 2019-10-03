@@ -51,10 +51,10 @@ export default function ({ onNextStep }) {
     </li>
   ));
 
-  const handleSelectImageUrl = useCallback((e) => {
+  const handleSelectImageUrl = (e) => {
     setInvalidImageUrl(false);
     setImageUrl(e.target.value);
-  });
+  };
   const handleSelectedImageUrl = useCallback(() => {
     setLoadingImageUrl(true);
     setInvalidImageUrl(false);
@@ -69,7 +69,7 @@ export default function ({ onNextStep }) {
       setLoadingImageUrl(false);
       setInvalidImageUrl(true);
     }
-  });
+  }, [onNextStep, imageUrl]);
 
   return (
     <>
@@ -84,7 +84,7 @@ export default function ({ onNextStep }) {
         </Nav>
       </Card.Header>
 
-      {ImageSourceType.FromLocal == imageSrcType && <Card.Body>
+      {ImageSourceType.FromLocal === imageSrcType && <Card.Body>
         <div {...getRootProps({className: 'dropzone'+(loadingImageUrl?' disabled':'')})}>
           <input {...getInputProps()} />
           <FontAwesomeIcon icon={faFileUpload} size="4x" />
@@ -96,7 +96,7 @@ export default function ({ onNextStep }) {
         </ol>
       </Card.Body>}
 
-      {ImageSourceType.FromUrl == imageSrcType && <Card.Body>
+      {ImageSourceType.FromUrl === imageSrcType && <Card.Body>
         <InputGroup className="mb-3">
           <FormControl
             placeholder="画像のURL"

@@ -44,7 +44,7 @@ const PrivacyPolicyText = `
 const MatchLink = /(\[(.+?)\]\((.+?)\))/g;
 const MatchSection = /^[０-９]/;
 
-export default function ({}) {
+export default function () {
 
   return (
     <div className="privacy-policy">
@@ -53,11 +53,11 @@ export default function ({}) {
     if (MatchSection.test(line)) {
       return <h2 key={`L${lineIndex}`}>{line}</h2>;
     }
-    const lineFormatted = line.replace(MatchLink, "\x7F$1\x7F").split("\x7F").map(token => {
+    const lineFormatted = line.replace(MatchLink, "\x7F$1\x7F").split("\x7F").map((token, tokenIndex) => {
       const m = MatchLink.exec(token);
       if (m) {
         return (
-          <Button variant="link" target="_blank" href={m[3]}>
+          <Button key={`link${tokenIndex}`} variant="link" target="_blank" href={m[3]}>
             {m[2]} <FontAwesomeIcon icon={faExternalLinkAlt} />
           </Button>
         );
