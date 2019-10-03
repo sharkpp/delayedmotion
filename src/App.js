@@ -80,7 +80,7 @@ function App() {
       <SimplePopup
         open={showPrivacyPolicy}
         onClose={() => setShowPrivacyPolicy(false)}
-        title="プライバシーポリシー"
+        caption="プライバシーポリシー"
       >
         <PrivacyPolicy />
       </SimplePopup>

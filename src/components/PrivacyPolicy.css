@@ -6,10 +6,14 @@
   border-bottom: double 3px #ccc;
   margin-top: 1rem;
   margin-right: .5rem;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
 .privacy-policy > p {
   margin-bottom: .3rem;
+}
+
+.privacy-policy > p > a {
+  padding: .1rem .2rem;
 }

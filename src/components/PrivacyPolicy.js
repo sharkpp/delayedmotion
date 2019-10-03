@@ -1,6 +1,11 @@
 "use struct";
 
-import React, { useState, useCallback } from 'react';
+import React from 'react';
+
+import { Button } from 'react-bootstrap';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 
 import './PrivacyPolicy.css';
 
@@ -31,12 +36,12 @@ const PrivacyPolicyText = `
 本方針は、当サイトにおいてのみ適用され、当サイトにリンクされています外部サイトについては適用されません。
 
 ８．その他
-@sharkpp では、本方針を改定することがあります。改定する場合は、当サイトでお知らせします。
+当サイトは、本方針を改定することがあります。改定する場合は、当サイトでお知らせします。
 
-当サイトの利用に関する落ちお合わせは、[@sharkpp](https://twitter.com/sharkpp) までお願いします。
+当サイトの利用に関するお問い合わせは、[@sharkpp](https://twitter.com/sharkpp)までお願いします。
 `;
 
-//const MatchLink = /\[.+?\]\(.+?\)/;
+const MatchLink = /(\[(.+?)\]\((.+?)\))/g;
 const MatchSection = /^[０-９]/;
 
 export default function ({}) {
@@ -45,10 +50,21 @@ export default function ({}) {
     <div className="privacy-policy">
 {
   PrivacyPolicyText.split("\n").map((line, lineIndex) => {
-    return (MatchSection.test(line)
-        ? <h2 key={`L${lineIndex}`}>{line}</h2>
-        : <p key={`L${lineIndex}`}>{line}</p>
-      );
+    if (MatchSection.test(line)) {
+      return <h2 key={`L${lineIndex}`}>{line}</h2>;
+    }
+    const lineFormatted = line.replace(MatchLink, "\x7F$1\x7F").split("\x7F").map(token => {
+      const m = MatchLink.exec(token);
+      if (m) {
+        return (
+          <Button variant="link" target="_blank" href={m[3]}>
+            {m[2]} <FontAwesomeIcon icon={faExternalLinkAlt} />
+          </Button>
+        );
+      }
+      return token;
+    });
+    return <p key={`L${lineIndex}`}>{lineFormatted}</p>;
   })
 }
     </div>
