@@ -34,7 +34,7 @@ export default function ({ image, onNextStep }) {
           </Button>
         </Form.Group>
         <Form.Group as={Col}>
-          <Button variant="secondary" onClick={handleNext} >
+          <Button variant="link" onClick={handleNext} >
             新規作成
           </Button>
         </Form.Group>
