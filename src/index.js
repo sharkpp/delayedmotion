@@ -16,7 +16,14 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // register() に変更できます。これにはいくつかの落とし穴があります。
 // サービスワーカーの詳細: https://bit.ly/CRA-PWA
 
-serviceWorker.unregister();
+serviceWorker.register({
+  onUpdate: (registration) => {
+    console.log('onUpdate',registration);
+  },
+  onSuccess: (registration) => {
+    console.log('onSuccess',registration);
+  }
+});
 
 // 要求スペック
 //   config#onUpdate(registration);
