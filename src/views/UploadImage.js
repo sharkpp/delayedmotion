@@ -2,7 +2,7 @@
 
 import React, { useState, useCallback, useEffect } from 'react';
 
-import { Nav, Card, Form, FormControl, InputGroup, Button, Spinner } from 'react-bootstrap';
+import { Nav, Card, Form, FormControl, InputGroup, Button, Spinner, Alert } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons'
@@ -27,9 +27,6 @@ export default function ({ models, onNextStep }) {
     const handleNetworkChange = (isOnline) => {
       //console.log('handleNetworkChange',isOnline);
       setOnline(isOnline);
-      if (!isOnline && ImageSourceType.FromUrl === +imageSrcType) {
-        setImageSrcType(ImageSourceType.FromLocal);
-      }
     };
     network.on(network.EventType.Change, handleNetworkChange);
     return () => {
@@ -95,7 +92,7 @@ export default function ({ models, onNextStep }) {
             <Nav.Link eventKey={ImageSourceType.FromLocal}>アップロード</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link disabled={!online} eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
+            <Nav.Link eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
           </Nav.Item>
         </Nav>
       </Card.Header>
@@ -119,13 +116,13 @@ export default function ({ models, onNextStep }) {
             value={imageUrl}
             onChange={handleSelectImageUrl}
             isInvalid={invalidImageUrl}
-            readOnly={loadingImageUrl}
+            readOnly={!online || loadingImageUrl}
           />
           <InputGroup.Append>
             <Button 
-              variant="outline-primary"
+              variant={online ? "outline-primary" : "outline-secondary"}
               onClick={handleSelectedImageUrl}
-              disabled={!imageUrl || loadingImageUrl}
+              disabled={!online || !imageUrl || loadingImageUrl}
             >
               {loadingImageUrl && <Spinner
                 as="span"
@@ -142,6 +139,9 @@ export default function ({ models, onNextStep }) {
             指定したURLは画像として利用できませんでした
           </Form.Control.Feedback>
         </InputGroup>
+        {!online && <Alert variant='warning'>
+          現在、インターネットへ接続されていないためURLを指定しての画像の読み込み機能は利用できません。
+        </Alert>}
       </Card.Body>}
     </>
   );
