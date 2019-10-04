@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "95c8f8f928e767ee80a29c4e97624d4e",
+    "revision": "a3c8b249882b562360578107bee2c9be",
     "url": "https://sharkpp.github.io/delayedmotion/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://sharkpp.github.io/delayedmotion/static/css/2.1f0736ca.chunk.css"
   },
   {
-    "revision": "dd210d49ced8b38d8d2b",
+    "revision": "f7fae64115e318b581e5",
     "url": "https://sharkpp.github.io/delayedmotion/static/css/main.11a1473a.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "https://sharkpp.github.io/delayedmotion/static/js/2.39291b00.chunk.js"
   },
   {
-    "revision": "dd210d49ced8b38d8d2b",
-    "url": "https://sharkpp.github.io/delayedmotion/static/js/main.47259317.chunk.js"
+    "revision": "f7fae64115e318b581e5",
+    "url": "https://sharkpp.github.io/delayedmotion/static/js/main.24ccbb12.chunk.js"
   },
   {
     "revision": "61219159cef122a09100",
