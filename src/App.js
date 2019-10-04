@@ -27,7 +27,7 @@ const Steps = [
   { title: '完成'}
 ];
 
-function App() {
+function App({ models }) {
 
   const [ step,  setStep  ] = useState(Step.UploadImage);
   const [ image, setImage ] = useState(null);
@@ -61,9 +61,9 @@ function App() {
       </div>
       <Card>
         {[
-          <UploadImageView   onNextStep={handelUploadImageFinish} />,
-          <SelectAreaView    onNextStep={handelSelectAreaFinish}    image={image} />,
-          <DownloadImageView onNextStep={handelDownloadImageFinish} image={image2} />
+          <UploadImageView   models={models} onNextStep={handelUploadImageFinish} />,
+          <SelectAreaView    models={models} onNextStep={handelSelectAreaFinish}    image={image} />,
+          <DownloadImageView models={models} onNextStep={handelDownloadImageFinish} image={image2} />
         ][step]}
       </Card>
       <div className="footer">

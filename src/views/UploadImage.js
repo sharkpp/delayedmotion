@@ -1,6 +1,6 @@
 "use struct";
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 import { Nav, Card, Form, FormControl, InputGroup, Button, Spinner } from 'react-bootstrap';
 
@@ -14,12 +14,28 @@ import { ImageSourceType } from '../misc/constants';
 
 import './UploadImage.css';
 
-export default function ({ onNextStep }) {
+export default function ({ models, onNextStep }) {
+  const { network } = models;
 
+  const [ online, setOnline ] = useState(network.isOnline());
   const [ imageSrcType, setImageSrcType ] = useState(ImageSourceType.FromLocal);
   const [ imageUrl, setImageUrl ] = useState('');
   const [ invalidImageUrl, setInvalidImageUrl ] = useState(false);
   const [ loadingImageUrl, setLoadingImageUrl ] = useState(false);
+
+  useEffect(() => {
+    const handleNetworkChange = (isOnline) => {
+      //console.log('handleNetworkChange',isOnline);
+      setOnline(isOnline);
+      if (!isOnline && ImageSourceType.FromUrl === +imageSrcType) {
+        setImageSrcType(ImageSourceType.FromLocal);
+      }
+    };
+    network.on(network.EventType.Change, handleNetworkChange);
+    return () => {
+      network.off(network.EventType.Change, handleNetworkChange);
+    };
+  }, [network, imageSrcType]);
 
   const handleDrop = (files) => {
     if (files[0]) {
@@ -79,7 +95,7 @@ export default function ({ onNextStep }) {
             <Nav.Link eventKey={ImageSourceType.FromLocal}>アップロード</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
+            <Nav.Link disabled={!online} eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
           </Nav.Item>
         </Nav>
       </Card.Header>

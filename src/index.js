@@ -9,8 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 import App from './App';
+import NetworkModel from './models/Network';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const models = {
+  network: new NetworkModel(),
+};
+
+ReactDOM.render(<App models={models} />, document.getElementById('root'));
 
 // アプリをオフラインで動作させてより速くロードしたい場合は、以下で unregister() を
 // register() に変更できます。これにはいくつかの落とし穴があります。
