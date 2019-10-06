@@ -55,3 +55,14 @@
 .footer > .btn-sm {
   font-size: .7rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  .stepper > div > div > div > a {
+    color: #EEEEEE !important;
+  }
+  .stepper > div > div > div > div > a,
+  .stepper > div > div > div > div > span {
+    color: #333333 !important;
+  } 
+}
+

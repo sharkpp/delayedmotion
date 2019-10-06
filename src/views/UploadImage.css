@@ -31,3 +31,10 @@
   word-break: keep-all;
   overflow: hidden;
 }
+
+@media (prefers-color-scheme: dark) {
+  .dropzone {
+
+    background-color: #444444;
+  }
+}

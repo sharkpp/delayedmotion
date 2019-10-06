@@ -6,10 +6,16 @@ import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+//import '@forevolve/bootstrap-dark/dist/css/bootstrap-dark.min.css';
+//import './dark-theme.css';
 import './index.css';
 
 import App from './App';
 import NetworkModel from './models/Network';
+
+import('./dark-theme.css')
+  .then(() => { })
+  .catch(err => { });
 
 const models = {
   network: new NetworkModel(),
