@@ -43,4 +43,4 @@
 
 このコードは、[The MIT License](http://opensource.org/licenses/MIT)の下でライセンスされています。
 
-サンプル画像は[Pixabay License](https://pixabay.com/service/license/)の下で[#1958386 - pixabay](https://pixabay.com/photos/caramel-cream-flan-milk-egg-sugar-1958386/)を利用しています。
+サンプル画像は[Pixabay License](https://pixabay.com/service/license/)の下で[#1958386 - pixabay]( https://pixabay.com/images/id-1958386/)を利用しています。
