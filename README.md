@@ -2,70 +2,45 @@
 
 画像を揺らすと一部がなぜか遅れて揺れる画像を作るジェネレータです。
 
+[![Lighthouse score: 96/100](https://lighthouse-badge.appspot.com/?score=96&compact&category=Perf)](https://github.com/sharkpp/delayedmotion)
+[![Lighthouse score: 97/100](https://lighthouse-badge.appspot.com/?score=97&compact&category=BP)](https://github.com/sharkpp/delayedmotion)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=A11y)](https://github.com/sharkpp/delayedmotion)
+[![Lighthouse score: 100/100](https://lighthouse-badge.appspot.com/?score=100&compact&category=SEO)](https://github.com/sharkpp/delayedmotion)
+[![Lighthouse score: 2/3](https://lighthouse-badge.appspot.com/?score=66&compact&category=PWA)](https://github.com/sharkpp/delayedmotion)
+
+![GitHub](https://img.shields.io/github/license/sharkpp/delayedmotion) [![Actions Status](https://github.com/sharkpp/delayedmotion/workflows/build/badge.svg)](https://github.com/sharkpp/delayedmotion/actions)
+
 [試してみる](https://sharkpp.github.io/delayedmotion/)  
 
-## 利用可能なスクリプト
+![スクリーンショット](docs/ss.png)
 
-プロジェクトディレクトリで、次を実行できます:
+## 使い方
 
-### `npm ci`
+### 「画像アップロード」
 
-`node_modules` フォルダを削除してから利用しているパッケージをインストールします。
+![１画面目](docs/ss-p1.png)
 
-### `npm start`
+* 「アップロード」... ローカルから画像を指定します。
+* 「URLを指定」... インターネット上の画像のアドレスを指定し画像を利用します。※オフラインモードでは利用できません。
 
-開発モードでアプリを実行します。  
-[http://localhost:3000](http://localhost:3000) を開いてブラウザで表示します。
+### 「揺らす範囲を設定」
 
-編集するとページがリロードされます。  
-また、コンソールに lint エラーが表示されます。
+![２画面目](docs/ss-p2.png)
 
-### `npm test`
+* 画像上でドラッグすることで範囲を指定します。
 
-インタラクティブな監視モードでテストランナーを起動します。  
-詳細については [running tests](https://facebook.github.io/create-react-app/docs/running-tests) に関するセクションを参照してください。
+### 「完成」
 
-### `npm run build`
+![３画面目](docs/ss-p3.png)
 
-実動用のアプリを `build` フォルダにビルドします。  
-実稼働モードで React を正しくバンドルし、最高のパフォーマンスを得るためにビルドを最適化します。
+* ダウンロードボタンを選択し画像を保存してください。
 
-ビルドは縮小され、ファイル名にはハッシュが含まれます。  
-アプリをデプロイする準備ができました！
+## 開発に関するあれこれ
 
-詳細については、 [deployment](https://facebook.github.io/create-react-app/docs/deployment) に関するセクションを参照してください。
+[開発に関するあれこれ](DEVELOP.md)
 
-## もっと詳しく知る
+## ライセンス
 
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) で詳細を確認できます。
+このコードは、[The MIT License](http://opensource.org/licenses/MIT)の下でライセンスされています。
 
-Reactを学ぶには [React documentation](https://reactjs.org/) をご覧ください。
-
-### コード分割
-
-このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### バンドルサイズの分析
-
-このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### プログレッシブウェブアプリの作成
-
-このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### 高度な設定
-
-このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` が縮小に失敗する
-
-このセクションはここに移動しました: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-
-### ライセンスなど
-
-* Logo from openclipart [AlanSpeak-Crème caramel or Flan](https://openclipart.org/detail/204739/alanspeakcreme-caramel-or-flan)  
-
+サンプル画像は[Pixabay License](https://pixabay.com/service/license/)の下で[#1958386 - pixabay](https://pixabay.com/photos/caramel-cream-flan-milk-egg-sugar-1958386/)を利用しています。
