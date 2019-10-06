@@ -57,7 +57,7 @@ export default function () {
       const m = MatchLink.exec(token);
       if (m) {
         return (
-          <Button key={`link${tokenIndex}`} variant="link" target="_blank" href={m[3]}>
+          <Button key={`link${tokenIndex}`} variant="link" target="_blank" rel="noopener" href={m[3]}>
             {m[2]} <FontAwesomeIcon icon={faExternalLinkAlt} />
           </Button>
         );

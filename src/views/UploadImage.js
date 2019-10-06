@@ -86,18 +86,20 @@ export default function ({ models, onNextStep }) {
 
   return (
     <>
-      <Card.Header>
-        <Nav variant="tabs" activeKey={imageSrcType} onSelect={k => setImageSrcType(k)}>
+      <Card.Header
+        role="tablist" // なぜか Nav に role がつかないので
+      >
+        <Nav variant="tabs" aria-label="image-source" activeKey={imageSrcType} onSelect={k => setImageSrcType(k)}>
           <Nav.Item>
-            <Nav.Link eventKey={ImageSourceType.FromLocal}>アップロード</Nav.Link>
+            <Nav.Link id="tab-img-from-file" aria-controls="tab-panel" eventKey={ImageSourceType.FromLocal}>アップロード</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
+            <Nav.Link id="tab-img-from-url" aria-controls="tab-panel" eventKey={ImageSourceType.FromUrl}>URLを指定</Nav.Link>
           </Nav.Item>
         </Nav>
       </Card.Header>
 
-      {ImageSourceType.FromLocal === +imageSrcType && <Card.Body>
+      {ImageSourceType.FromLocal === +imageSrcType && <Card.Body id="tab-panel" role="tabpanel" aria-hidden="false" data-aria-labelledby="tab-img-from-file">
         <div {...getRootProps({className: 'dropzone'+(loadingImageUrl?' disabled':'')})}>
           <input {...getInputProps()} />
           <FontAwesomeIcon icon={faFileUpload} size="4x" />
@@ -109,7 +111,7 @@ export default function ({ models, onNextStep }) {
         </ol>
       </Card.Body>}
 
-      {ImageSourceType.FromUrl === +imageSrcType && <Card.Body>
+      {ImageSourceType.FromUrl === +imageSrcType && <Card.Body id="tab-panel" role="tabpanel" aria-hidden="false" aria-labelledby="tab-img-from-url">
         <InputGroup className="mb-3">
           <FormControl
             placeholder="画像のURL"
@@ -120,6 +122,7 @@ export default function ({ models, onNextStep }) {
           />
           <InputGroup.Append>
             <Button 
+              role="image-select-apply"
               variant={online ? "outline-primary" : "outline-secondary"}
               onClick={handleSelectedImageUrl}
               disabled={!online || !imageUrl || loadingImageUrl}
@@ -128,7 +131,7 @@ export default function ({ models, onNextStep }) {
                 as="span"
                 animation="border"
                 size="sm"
-                role="status"
+                role="image-loading-status"
                 aria-hidden="true"
                 className="btn-inner-spinner"
               />}

@@ -70,10 +70,10 @@ function App({ models }) {
           <Button variant="link" size="sm" onClick={() => setShowPrivacyPolicy(true)}>
             <FontAwesomeIcon icon={faUserShield} /> プライバシーポリシー
           </Button>
-          <Button variant="link" size="sm" target="_blank" href="https://twitter.com/sharkpp">
+          <Button variant="link" size="sm" target="_blank" rel="noopener" href="https://twitter.com/sharkpp">
             <FontAwesomeIcon icon={faTwitter} /> @sharkpp
           </Button>
-          <Button variant="link" size="sm" target="_blank" href="https://github.com/sharkpp/delayedmotion/issues/new">
+          <Button variant="link" size="sm" target="_blank" rel="noopener" href="https://github.com/sharkpp/delayedmotion/issues/new">
             <FontAwesomeIcon icon={faBug} /> 不具合報告
           </Button>
       </div>
